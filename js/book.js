@@ -2,6 +2,7 @@ const urlParams = new URLSearchParams(window.location.search);
 const bookId = urlParams.get("bookid") || "";
 console.log(bookId);
 
+//git change
 const books = [
     {
         bookid: 1001,
