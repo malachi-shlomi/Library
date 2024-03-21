@@ -101,5 +101,10 @@ if (bookDetails) {
         </div>
     `;
 } else {
-    console.log("Book not found");
+    const bookPageElement = document.querySelector('.BookPageWraper');
+    bookPageElement.innerHTML = `
+        <div>
+            <h2>Book Not Found!</h2>
+        </div>
+    `;
 }
