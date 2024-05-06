@@ -4,12 +4,11 @@ document.addEventListener('DOMContentLoaded', function() {
     submitButton.addEventListener('click', function(e) {
         e.preventDefault(); 
 
-        
-        const name = document.querySelector('input[placeholder="What is your Name?"]').value;
-        const phone = document.querySelector('input[placeholder="Phone Number"]').value;
-        const email = document.querySelector('input[placeholder="Email"]').value;
-
-        
+        const name = document.getElementById('name').value;
+        const phone = document.getElementById('phone').value;
+        const email = document.getElementById('email').value;
+        const password = document.getElementById('password').value;
+ 
         if (!name.trim()) {
             alert('Please enter your name.');
             return false;
@@ -22,17 +21,26 @@ document.addEventListener('DOMContentLoaded', function() {
             return false;
         }
 
-        
+        // verify email
         const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
         if (!email.trim() || !emailPattern.test(email)) {
             alert('Please enter a valid email address.');
             return false;
         }
+    
+        // check that the password doesn't contains the same letter twice
+        for(let i = 0; i < password.length; i++){
+            for(let j = i+1; j < password.length; j++){
+                if(password[i] === password[j]){
+                    alert('Password cannot contain the same letter twice.');
+                    return false;
+                }
+            }
+        }
 
-        
+
         console.log('Form submitted successfully!');
         alert('Thank you for your message!');
-
         
     });
 });
